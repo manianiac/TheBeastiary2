@@ -17,17 +17,6 @@ public class BeastiaryController {
  
     @Autowired
     private BeastiaryDao beastiaryDao;
- 
-//    @RequestMapping(value="/beastiary")
-//    public ModelAndView guestbook(HttpServletRequest request) {
-//        // Handle a new guest (if any):
-//        String name = request.getParameter("name");
-//        if (name != null)
-//        	beastiaryDao.persist(new Beastiary(name));
-// 
-//        // Prepare the result view (guest.jsp):
-//        return new ModelAndView("beastiary.jsp", "beastiaryDao", beastiaryDao);
-//    }
     
     //@RequestMapping(value="/index")
     @RequestMapping(value="/")
@@ -70,7 +59,8 @@ public class BeastiaryController {
 	@RequestMapping(value="/monster")
     public ModelAndView beastiaryMonster(HttpServletRequest request) {
     	try {
-			Monster monster = beastiaryDao.getMonsterByMonsterID("00013");
+    		String id = request.getParameter("id");
+			Monster monster = beastiaryDao.getMonsterByMonsterID(id);
 			ModelAndView monsterPage = new ModelAndView("Monster");
 			monsterPage.addObject("monster", monster);
 			return monsterPage;

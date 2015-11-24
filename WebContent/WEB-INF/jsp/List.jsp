@@ -57,7 +57,7 @@
 					<p>WE NEED A DESCRIPTION FIELD</p>
 				</div>
 				<div class="action">
-					<a href='#'>Full Stat Block</a>
+					<a href='/HelloProject/monster?id=${monster.monsterid}'>Full Stat Block</a>
 				</div>
 			</div>
 		</c:forEach>
