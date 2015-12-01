@@ -39,7 +39,7 @@
 			</div>
 			<div data-role="content" role="main" id="mainframe-holder">
 			<!--This iframe will be filled with a jsp to populate the list -->
-				<iframe id="mainframe" src="/monsterList" width="100%">
+				<iframe id="mainframe" src="/HelloProject/monsterList" width="100%">
 			</div>
 		</div>
 	</body>

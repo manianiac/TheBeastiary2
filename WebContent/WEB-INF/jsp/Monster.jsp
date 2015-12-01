@@ -186,7 +186,7 @@ th, td {
     }
     // This is an en dash, NOT a "normal" dash. The minus sign needs to be more
     // visible.
-    return '–' + Math.abs(abilityModifier);
+    return '+' + Math.abs(abilityModifier);
   }
 
   function abilityText(abilityScore) {
@@ -383,7 +383,7 @@ div {
 
 		<div class="card">
 			<div class="image">
-				<img src="resources/content/orcShaman.jpg">
+				<img src="${monster.picture}">
 			</div>
 		</div>
 		<div class="card">
@@ -396,31 +396,33 @@ div {
 
 				<top-stats> <property-line>
 				<h4>Armor Class</h4>
-				<p>18 (natural armor)</p>
+				<p>${monster.armorclass}</p>
 				</property-line> <property-line>
 				<h4>Hit Points</h4>
-				<p>33 (6d8 + 6)</p>
+				<p>${monster.hitdice}</p>
 				</property-line> <property-line>
 				<h4>Speed</h4>
-				<p>25ft</p>
-				</property-line> <abilities-block data-cha="1" data-con="13" data-dex="11"
-					data-int="1" data-str="14" data-wis="3"></abilities-block> <property-line>
+				<p>${monster.speed}</p>
+				</property-line> 
+				Thing
+				<stat-block data-cha=${monster.cha} data-con=${monster.con} data-dex=${monster.dex}
+					data-int="1" data-str="14" data-wis="3">
+				</stat-block> <property-line>
+				Thing
 				<h4>Damage Immunities</h4>
-				<p>poison, psychic</p>
+				<p>${monster.damageimmunities}</p>
 				</property-line> <property-line>
 				<h4>Condition Immunities</h4>
-				<p>blinded, charmed, deafened, exhaustion, frightened,
-					paralyzed, petrified, poisoned</p>
+				<p>${monster.conditionimmunities}</p>
 				</property-line> <property-line>
 				<h4>Senses</h4>
-				<p>blindsight 60 ft. (blind beyond this radius), passive
-					Perception 6</p>
+				<p>${monster.senses}</p>
 				</property-line> <property-line>
 				<h4>Languages</h4>
-				<p>-</p>
+				<p>${monster.languages}</p>
 				</property-line> <property-line>
 				<h4>Challenge</h4>
-				<p>1 (200 XP)</p>
+				<p>${monster.challenge}</p>
 				</property-line> </top-stats>
 			</div>
 		</div>
@@ -428,62 +430,26 @@ div {
 		<div class="card">
 			<div class="content">
 
+			<c:forEach items="${abilities}" var="ability">    
 				<property-block>
-				<h4>Antimagic Susceptibility.</h4>
+				<h4>${ability.abilityName}.</h4>
 				<p>
-					The armor is incapacitated while in the area of an <i>antimagic
-						field</i>. If targeted by <i>dispel magic</i>, the armor must succeed
-					on a Constitution saving throw against the caster’s spell save DC
-					or fall unconscious for 1 minute.
+					${ability.abilityText}
 				</p>
 				</property-block>
+			</c:forEach>
+			
+			<h3>Actions</h3>
+			
+			<c:forEach items="${actions}" var="action">    
 				<property-block>
-				<h4>False Appearance.</h4>
-				<p>While the armor remains motionless, it is indistinguishable
-					from a normal suit of armor.</p>
-				</property-block>
-
-				<h3>Actions</h3>
-
-				<property-block>
-				<h4>Multiattack.</h4>
-				<p>The armor makes two melee attacks.</p>
-				</property-block>
-
-				<property-block>
-				<h4>Slam.</h4>
+				<h4>${action.actionName}.</h4>
 				<p>
-					<i>Melee Weapon Attack:</i> +4 to hit, reach 5 ft., one target. <i>Hit:</i>
-					5 (1d6 + 2) bludgeoning damage.
+					${action.actionText}
 				</p>
 				</property-block>
+			</c:forEach>
 			</div>
 		</div>
-
-
-		<div class="card">
-			<div class="content">
-				<form action="/html/tags/html_form_tag_action.cfm" method="post">
-					<div>
-						<textarea name="comments" id="comments" rows="4" cols="60"
-							style="font-size: 12px;"></textarea>
-					</div>
-					<input type="submit" value="Save">
-				</form>
-			</div>
-		</div>
-
-		<div class="card">
-			<div class="content">
-				<a href='#'>Creator Name</a>
-				<h4>Date Created</h4>
-				<h4>Image From: www.image.com</h4>
-			</div>
-		</div>
-
-
-		<p></p>
-
 	</div>
 </body>
-</web-app>

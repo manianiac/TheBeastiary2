@@ -2,7 +2,6 @@ package theBeastiary;
 
 public class Monster {
 	private String monsterid;
-	private String userid;
 	private String datecreated;
 	private String datelastedit;
 	private String versionnumber;
@@ -30,20 +29,15 @@ public class Monster {
 	private String challenge;
 	private String skills;
 	private String saves;
-	private String abililties;
-	private String actions;
-	private String legendaryactions;
-	private String lairactions;
 	private String fluff;
 
-	public Monster(String monsterid, String userid, String datecreated, String datelastedit, String versionnumber,
+	public Monster(String monsterid, String datecreated, String datelastedit, String versionnumber,
 			String rating, String picture, String monstername, String race, String size, String alignment,
 			String armorclass, String armortype, String hitdice, String speed, String str, String dex, String con,
 			String intelligence, String wis, String cha, String damageresistance, String damageimmunities,
 			String conditionimmunities, String senses, String languages, String challenge, String skills, String saves,
-			String abililties, String actions, String legendaryactions, String lairactions, String fluff) {
+			String fluff) {
 		this.monsterid = monsterid;
-		this.userid = userid;
 		this.datecreated = datecreated;
 		this.datelastedit = datelastedit;
 		this.versionnumber = versionnumber;
@@ -71,10 +65,6 @@ public class Monster {
 		this.challenge = challenge;
 		this.skills = skills;
 		this.saves = saves;
-		this.abililties = abililties;
-		this.actions = actions;
-		this.legendaryactions = legendaryactions;
-		this.lairactions = lairactions;
 		this.fluff = fluff;
 	}
 
@@ -96,17 +86,6 @@ public class Monster {
 	/**
 	 * @return the userid
 	 */
-	public String getUserid() {
-		return userid;
-	}
-
-	/**
-	 * @param userid
-	 *            the userid to set
-	 */
-	public void setUserid(String userid) {
-		this.userid = userid;
-	}
 
 	/**
 	 * @return the datecreated
@@ -516,62 +495,6 @@ public class Monster {
 	/**
 	 * @return the abililties
 	 */
-	public String getAbililties() {
-		return abililties;
-	}
-
-	/**
-	 * @param abililties
-	 *            the abililties to set
-	 */
-	public void setAbililties(String abililties) {
-		this.abililties = abililties;
-	}
-
-	/**
-	 * @return the actions
-	 */
-	public String getActions() {
-		return actions;
-	}
-
-	/**
-	 * @param actions
-	 *            the actions to set
-	 */
-	public void setActions(String actions) {
-		this.actions = actions;
-	}
-
-	/**
-	 * @return the legendaryactions
-	 */
-	public String getLegendaryactions() {
-		return legendaryactions;
-	}
-
-	/**
-	 * @param legendaryactions
-	 *            the legendaryactions to set
-	 */
-	public void setLegendaryactions(String legendaryactions) {
-		this.legendaryactions = legendaryactions;
-	}
-
-	/**
-	 * @return the lairactions
-	 */
-	public String getLairactions() {
-		return lairactions;
-	}
-
-	/**
-	 * @param lairactions
-	 *            the lairactions to set
-	 */
-	public void setLairactions(String lairactions) {
-		this.lairactions = lairactions;
-	}
 
 	/**
 	 * @return the fluff

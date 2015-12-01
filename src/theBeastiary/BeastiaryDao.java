@@ -38,64 +38,91 @@ public class BeastiaryDao {
 		}
 	}
 	
-	public ArrayList<Comments> getCommentsByMonsterID(String monsterID) {
-		ArrayList<Comments> commentList = new ArrayList<Comments>();
-		try {
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM USERCOMMENTS ORDER BY datecreated DESC WHERE monsterid = '" + monsterID + "';");
-			while (rs.next()) {
-				commentList.add(new Comments(
-						rs.getString("commentid"),
-						rs.getString("monsterid"),
-						rs.getString("userid"),
-						rs.getString("comment"),
-						rs.getString("datecreated")
-						));
-					System.out.println(rs.getString("fluff"));
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return commentList;
-	}
+//	public ArrayList<Comments> getCommentsByMonsterID(String monsterID) {
+//		ArrayList<Comments> commentList = new ArrayList<Comments>();
+//		try {
+//			Statement stmt = con.createStatement();
+//			ResultSet rs = stmt.executeQuery("SELECT * FROM USERCOMMENTS ORDER BY datecreated DESC WHERE monsterid = '" + monsterID + "';");
+//			while (rs.next()) {
+//				commentList.add(new Comments(
+//						rs.getString("commentid"),
+//						rs.getString("monsterid"),
+//						rs.getString("userid"),
+//						rs.getString("comment"),
+//						rs.getString("datecreated")
+//						));
+//					System.out.println(rs.getString("fluff"));
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return commentList;
+//	}
 	
-	public ArrayList<Comments> getCommentsByUserID(String userID) {
-		ArrayList<Comments> commentList = new ArrayList<Comments>();
-		try {
-			Statement stmt = con.createStatement();
-			ResultSet rs = stmt.executeQuery("SELECT * FROM USERCOMMENTS ORDER BY datecreated DESC WHERE userid = '" + userID + "';");
-			while (rs.next()) {
-				commentList.add(new Comments(
-						rs.getString("commentid"),
-						rs.getString("monsterid"),
-						rs.getString("userid"),
-						rs.getString("comment"),
-						rs.getString("datecreated")
-						));
-					System.out.println(rs.getString("fluff"));
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return commentList;
-	}
+//	public ArrayList<Comments> getCommentsByUserID(String userID) {
+//		ArrayList<Comments> commentList = new ArrayList<Comments>();
+//		try {
+//			Statement stmt = con.createStatement();
+//			ResultSet rs = stmt.executeQuery("SELECT * FROM USERCOMMENTS ORDER BY datecreated DESC WHERE userid = '" + userID + "';");
+//			while (rs.next()) {
+//				commentList.add(new Comments(
+//						rs.getString("commentid"),
+//						rs.getString("monsterid"),
+//						rs.getString("userid"),
+//						rs.getString("comment"),
+//						rs.getString("datecreated")
+//						));
+//					System.out.println(rs.getString("fluff"));
+//			}
+//
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//		return commentList;
+//	}
 	
-	public User getUserByID(String userID) throws SQLException {
+//	public User getUserByID(String userID) throws SQLException {
+//		Statement stmt = con.createStatement();
+//		ResultSet rs = stmt.executeQuery("SELECT * FROM USERS WHERE userid = '" + userID + "';");
+//		if(rs.next()) {
+//			User user = new User(
+//					rs.getString("userid"),
+//					rs.getString("displayname"),
+//					rs.getString("datejoined"),
+//					rs.getString("passwords"),
+//					rs.getString("email")
+//					);
+//			return user;
+//		}
+//		return null;
+//	}
+	
+	public ArrayList<Action> getActions(String monsterID) throws SQLException {
 		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM USERS WHERE userid = '" + userID + "';");
-		if(rs.next()) {
-			User user = new User(
-					rs.getString("userid"),
-					rs.getString("displayname"),
-					rs.getString("datejoined"),
-					rs.getString("passwords"),
-					rs.getString("email")
-					);
-			return user;
+		ResultSet rs = stmt.executeQuery("SELECT * FROM ACTIONS WHERE monsterid = '" + monsterID + "';");
+		ArrayList<Action> actions = new ArrayList<Action>();
+		while (rs.next()) {
+			actions.add(new Action(
+					rs.getString("monsterid"),
+					rs.getString("actionname"),
+					rs.getString("actiondescription")
+					));
 		}
-		return null;
+		return actions;
+	}
+	public ArrayList<Ability> getAbilities(String monsterID) throws SQLException {
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM ABILITIES WHERE monsterid = '" + monsterID + "';");
+		ArrayList<Ability> abilities = new ArrayList<Ability>();
+		while (rs.next()) {
+			abilities.add(new Ability(
+					rs.getString("monsterid"),
+					rs.getString("abilityname"),
+					rs.getString("abilitydescription")
+					));
+		}
+		return abilities;
 	}
 	
 	public Monster getMonsterByMonsterID(String monsterID) throws SQLException{
@@ -104,7 +131,6 @@ public class BeastiaryDao {
 		if(rs.next()) {
 			Monster monster = new Monster(
 					rs.getString("monsterid"),
-					rs.getString("userid"),
 					rs.getString("datecreated"),
 					rs.getString("datelastedit"),
 					rs.getString("versionnumber"),
@@ -132,10 +158,6 @@ public class BeastiaryDao {
 					rs.getString("challenge"),
 					rs.getString("skills"),
 					rs.getString("saves"),
-					rs.getString("abililties"),
-					rs.getString("actions"),
-					rs.getString("legendaryactions"),
-					rs.getString("lairactions"),
 					rs.getString("fluff")
 					);
 			return monster;
@@ -151,7 +173,6 @@ public class BeastiaryDao {
 			while (rs.next()) {
 				recentMonsters.add(new Monster(
 						rs.getString("monsterid"),
-						rs.getString("userid"),
 						rs.getString("datecreated"),
 						rs.getString("datelastedit"),
 						rs.getString("versionnumber"),
@@ -179,10 +200,6 @@ public class BeastiaryDao {
 						rs.getString("challenge"),
 						rs.getString("skills"),
 						rs.getString("saves"),
-						rs.getString("abililties"),
-						rs.getString("actions"),
-						rs.getString("legendaryactions"),
-						rs.getString("lairactions"),
 						rs.getString("fluff")
 						));
 					System.out.println(rs.getString("fluff"));

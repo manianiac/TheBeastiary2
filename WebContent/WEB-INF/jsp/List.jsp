@@ -36,7 +36,7 @@
 		 
 			<div class="card">
 			
-				<c:if test="${monster.picture != 'picture link' }">
+				<c:if test="${monster.picture != '' }">
 					<div class="image">
 						<img src="${monster.picture}">
 					</div>
@@ -44,15 +44,15 @@
 			
 				<div class="content">
 					<span class="title">${monster.monstername}</span>
-					<h5>
-						Author: <a href="/user?id=${monster.userid}">
-						<c:forEach items="${users}" var="user">
-							<c:if test="${user.userid == monster.userid}">
-							${user.displayname}
-							</c:if>
-						</c:forEach>						
-						</a>
-					</h5>
+<!-- 					<h5> -->
+<%-- 						Author: <a href="/user?id=${monster.userid}"> --%>
+<%-- 						<c:forEach items="${users}" var="user"> --%>
+<%-- 							<c:if test="${user.userid == monster.userid}"> --%>
+<%-- 							${user.displayname} --%>
+<%-- 							</c:if> --%>
+<%-- 						</c:forEach>						 --%>
+<!-- 						</a> -->
+<!-- 					</h5> -->
 					<h5>Challenge: ${monster.challenge}</h5>
 					<p>WE NEED A DESCRIPTION FIELD</p>
 				</div>
@@ -61,32 +61,5 @@
 				</div>
 			</div>
 		</c:forEach>
-
-		<div class="card">
-				<div class="image">
-					<img src="resources/content/orcShaman.jpg">
-				</div>
-				<div class="content">
-					<span class="title">Shaman of Grumash</span>
-					<h5>Author: <a href="javascript:document.location='/HelloProject/user?id=0001">manianiac</a></h5>
-					<h5>Challenge: 4</h5>
-					<p>This is a space for fluff about whatever monster was created, a simple paragraph to interest casual browsers</p>
-				</div>
-				<div class="action">
-					<a href="javascript:document.location='/monster'">Full Stat Block</a>
-				</div>
-			</div>
-			<div class="card">
-				<div class="content">
-					<span class="title">Goblin Warrunner</span>
-					<h5>Author: <a href="LINK TO AUTHOR">jtkerp</a></h5>
-					<h5>Challenge: 2</h5>
-					<p>This is a block for a creature that was not created with an image assigned</p>
-				</div>
-				<div class="action">
-					<a href='#'>Full Stat Block</a>
-				</div>
-			</div>			
-		</div>
 	</body>
 </web-app>

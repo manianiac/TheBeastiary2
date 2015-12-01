@@ -1,4 +1,9 @@
-<html>
+<web-app id="WebApp_ID" version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	xmlns:th="http://www.thymeleaf.org">
    <head>
       <link rel="stylesheet" type="text/css" href="resources/css/jquery.mobile.flatui.css" />
       <link rel="stylesheet" type="text/css" href="resources/css/cardUI.css" />
@@ -30,75 +35,69 @@
    
    <body>
 		<div data-role="page">
-			<div class="card" id="GeneralInfo">
-				<span class="title">General Monster Information</span>
-				<form>
-					Monster Name: <input type="text" name="name"><br>
-					Race: <input type="text" name="race"><br>
-					Size: <input type="text" name="size"><br>
-					Alignment: <input type="text" name="alignment"><br>
-					Armor Class: <input type="text" name="armorClass"><br>
-					Armor Type: <input type="text" name="armorType"><br>
-					Hit Dice: <input type="text" name="hitDice"><br>
-				</form>	
-			</div>
-			<div class="card" id="MiddleInfo">
-				<span class="title">Middle Information</span>
-					<form>
-						Damage Resistance: <input type="text" name="damageResistance"><br>
-						Damage Immunities: <input type="text" name="damageImmunities"><br>
-						Comdition Immunities: <input type="text" name="conditionImmunities"><br>
-						Senses: <input type="text" name="senses"><br>
-						Languages: <input type="text" name="languages"><br>					
-						Challenge: <input type="text" name="challenge"><br>
-						Skills: <input type="text" name="skills"><br>
-						Saves: <input type="text" name="saves"><br>
-					</form>
-			</div>
-			<div class="card" id="Abilities">
-				<span class="title">Abilities</span>
-					<form>
-						Ability Name: <input type="text" name="ability1Name"><br>
-						Ability Desription: <input type="text" name="ability1Description"><br>
-						<a href="#" id="newAbility">Add New Ability</a><br>
-					</form>
-			</div>
-			<div class="card" id="Actions">
-				<span class="title">Actions</span>
-					<form>
-						Action Name: <input type="text" name="action1Name"><br>
-						Action Desription: <input type="text" name="action1Description"><br>
+			<form action="#" th:action="@{/newMonster}" th:object="${monster}" method="post">
+				<div class="card" id="GeneralInfo">
+					<span class="title">General Monster Information</span>
+						Monster Name: <input			type="text" th:field="*{monstername}"><br>
+						Race: <input 					type="text" th:field="*{race}"><br>
+						Size: <input 					type="text" th:field="*{size}"><br>
+						Alignment: <input 				type="text" th:field="*{alignment}"><br>
+						Armor Class: <input 			type="text" th:field="*{armorclass}"><br>
+						Armor Type: <input 				type="text" th:field="*{armortype}"><br>
+						Hit Dice: <input 				type="text" th:field="*{hitdice}"><br>
+				</div>
+				<div class="card" id="MiddleInfo">
+					<span class="title">Middle Information</span>
+						Damage Resistance: <input 		type="text" th:field="*{damageresistance}"><br>
+						Damage Immunities: <input 		type="text" th:field="*{damageimmunities}"><br>
+						Condition Immunities: <input 	type="text" th:field="*{conditionimmunities}"><br>
+						Senses: <input 					type="text" th:field="*{senses}"><br>
+						Languages: <input 				type="text" th:field="*{languages}"><br>					
+						Challenge: <input 				type="text" th:field="*{challenge}"><br>
+						Skills: <input 					type="text" th:field="*{skills}"><br>
+						Saves: <input 					type="text" th:field="*{saves}"><br>
+				</div>
+				<div class="card" id="Abilities">
+					<span class="title">Abilities</span>
+						Ability Name: <input 			type="text" th:field="*{ability1Name}"><br>
+						Ability Description: <input 		type="text" th:field="*{ability1Description}"><br>
+							<a href="#" id="newAbility">Add New Ability</a><br>
+				</div>
+				<div class="card" id="Actions">
+					<span class="title">Actions</span>
+						Action Name: <input 			type="text" th:field="*{action1Name}"><br>
+						Action Description: <input 		type="text" th:field="*{action1Description}""><br>
 						Add New Action +<br>
-					</form>
-			</div>
-			
-			<div class="card" id="LegendaryLairAction">
-				<span class="title">Legendary and Lair Action</span>
-					<form>
-						Legendary Action Name: <input type="text" name="action1Name"><br>
-						Legendary Action Desription: <input type="text" name="action1Description"><br>
-						Add New Legendary Action +<br>
-						<br>
-						Lair Action Name: <input type="text" name="action1Name"><br>
-						Lair Action Desription: <input type="text" name="action1Description"><br>
-						Add New Lair Action +<br>
-					</form>	
-			</div>
-			
-			<div class="card" id="Fluff">
-				<span class="title">Extra Background and Fluff</span>
-					<form>
-						Background Information and Fluff: <input type="text" name="fluff"><br>
-					</form>
-			</div>
-			
-			<div class="card" id="submit">
-				<form>
-					<input type="submit" value="Submit">
-				</form>
-			</div>
-			
+				</div>
+				
+<!-- 				<div class="card" id="LegendaryLairAction"> -->
+<!-- 					<span class="title">Legendary and Lair Action</span> -->
+<!-- 						Legendary Action Name:  -->
+<!-- 								<input 					type="text" th:field="*{action1Name}"><br> -->
+<!-- 						Legendary Action Description:  -->
+<!-- 								<input					type="text" th:field="*{action1Description}"><br> -->
+<!-- 						Add New Legendary Action + -->
+<!-- 						<br> -->
+<!-- 						<br> -->
+<!-- 						Lair Action Name: <input 		type="text" th:field="*{action1Name}"><br> -->
+<!-- 						Lair Action Description:  -->
+<!-- 								<input 					type="text" th:field="*{action1Description}"><br> -->
+<!-- 						Add New Lair Action + -->
+<!-- 						<br> -->
+<!-- 				</div> -->
+				
+				<div class="card" id="Fluff">
+					<span class="title">Description and Image</span>
+						Description: 
+							<input 						type="text" th:field="*{fluff}"><br>
+						Image: <input 					type="url" th:field="*{picture}"/><br>
+				</div>
+				
+				<div class="card" id="submit">
+					<input type="submit" value="Submit"/>
+				</div>
+			</form>
 		</div>
    </body>
    
-</html>
+</web-app>
