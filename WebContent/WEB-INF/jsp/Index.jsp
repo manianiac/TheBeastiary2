@@ -1,6 +1,6 @@
 <html>
 	<head>
-		
+		<link rel="shortcut icon" type="image/png" href="resources/content/BeastiarySquareIconSmall.png"/>
 		<link rel="stylesheet" type="text/css" href="resources/css/jquery.mobile.flatui.css" />
 		<script src="resources/js/jquery.js"></script>
 		<script>
@@ -29,17 +29,23 @@
 	<body overflow="hidden">
 		<div data-role="page">
 			<div data-role="panel" id="panel" data-position="right" data-theme="a" data-display="push">
-				Test
+				<a href='#'>Create New Monster</a><br>
+				<a href='#'>About The Beastiary</a>
 			</div>
+
+
 
 			<div data-role="header">
 				<a data-iconpos="notext" data-role="button" data-icon="home" class="ui-btn-left" title="Home" onclick="$('#mainframe').attr('src', '/monsterList')">Home</a>
-				<h1>The Beastiary</h1>
+				<h1><img alt="" width="30%"  src="resources/content/TheBeastiaryFull2 (2).png"></h1>
 				<a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu" class="ui-btn-right"></a>
 			</div>
+
+
+
 			<div data-role="content" role="main" id="mainframe-holder">
 			<!--This iframe will be filled with a jsp to populate the list -->
-				<iframe id="mainframe" src="/monsterList" width="100%">
+				<iframe id="mainframe" src="/HelloProject/monsterList" width="100%">
 			</div>
 		</div>
 	</body>

@@ -9,8 +9,9 @@
 	<head>
 			
 			<link rel="stylesheet" type="text/css" href="resources/css/jquery.mobile.flatui.css" />
-			<link rel="stylesheet" type="text/css" href="resources/css/cardUI.css" />
 			<link rel="stylesheet" type="text/css" href="resources/css/smoothness/jquery-ui.theme.min.css"/>
+						<link rel="stylesheet" type="text/css" href="resources/css/cardUI.css" />
+			
 			<script src="resources/js/jquery.js"></script>
 			<script>
 				$(document).bind('mobileinit',function(){
