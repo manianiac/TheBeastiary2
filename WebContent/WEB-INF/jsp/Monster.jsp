@@ -186,7 +186,11 @@ th, td {
     }
     // This is an en dash, NOT a "normal" dash. The minus sign needs to be more
     // visible.
+<<<<<<< HEAD
     return '+€“' + Math.abs(abilityModifier);
+=======
+    return 'â€“' + Math.abs(abilityModifier);
+>>>>>>> parent of 49007e2... Updates and Things
   }
 
   function abilityText(abilityScore) {
@@ -396,29 +400,36 @@ div {
 
 				<top-stats> <property-line>
 				<h4>Armor Class</h4>
-				<p>${monster.armorclass}</p>
+				<p>18 (natural armor)</p>
 				</property-line> <property-line>
 				<h4>Hit Points</h4>
-				<p>${monster.hitdice}</p>
+				<p>33 (6d8 + 6)</p>
 				</property-line> <property-line>
 				<h4>Speed</h4>
+<<<<<<< HEAD
 				<p>${monster.speed}</p>
 				</property-line> <abilities-block data-cha=${monster.cha} data-con=${monster.con} data-dex=${monster.dex}
+=======
+				<p>25ft</p>
+				</property-line> <abilities-block data-cha="1" data-con="13" data-dex="11"
+>>>>>>> parent of 49007e2... Updates and Things
 					data-int="1" data-str="14" data-wis="3"></abilities-block> <property-line>
 				<h4>Damage Immunities</h4>
-				<p>${monster.damageimmunities}</p>
+				<p>poison, psychic</p>
 				</property-line> <property-line>
 				<h4>Condition Immunities</h4>
-				<p>${monster.conditionimmunities}</p>
+				<p>blinded, charmed, deafened, exhaustion, frightened,
+					paralyzed, petrified, poisoned</p>
 				</property-line> <property-line>
 				<h4>Senses</h4>
-				<p>${monster.senses}</p>
+				<p>blindsight 60 ft. (blind beyond this radius), passive
+					Perception 6</p>
 				</property-line> <property-line>
 				<h4>Languages</h4>
-				<p>${monster.languages}</p>
+				<p>-</p>
 				</property-line> <property-line>
 				<h4>Challenge</h4>
-				<p>${monster.challenge}</p>
+				<p>1 (200 XP)</p>
 				</property-line> </top-stats>
 			</div>
 		</div>
